@@ -13,7 +13,7 @@ const Chat = () => {
     setInputMessage('');
 
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('https://tyuiu-rag-api-production.up.railway.app/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

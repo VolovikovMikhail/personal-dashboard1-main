@@ -107,7 +107,7 @@ const Form = () => {
             type="number"
             value={formData.top_n}
             onChange={(e) => setFormData({ ...formData, top_n: e.target.value })}
-            className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+            className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
             required
           />
         </label>
@@ -118,7 +118,7 @@ const Form = () => {
               value={formData.user.gender}
               name="gender"
               onChange={handleChange}
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               required
             >
               <option value="">Выберите пол</option>
@@ -133,7 +133,7 @@ const Form = () => {
               value={formData.user.age}
               name="age"
               onChange={handleChange}
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               required
             />
           </label>
@@ -144,7 +144,7 @@ const Form = () => {
               value={formData.user.sport}
               name="sport"
               onChange={handleChange}
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               required
             />
           </label>
@@ -156,7 +156,7 @@ const Form = () => {
               value={formData.user.gpa}
               name="gpa"
               onChange={handleChange}
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               required
             />
           </label>
@@ -182,7 +182,7 @@ const Form = () => {
               value={formData.user.bonus_points}
               name="bonus_points"
               onChange={handleChange}
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               required
             />
           </label>
@@ -193,7 +193,7 @@ const Form = () => {
                 <div
                   key={exam}
                   className={`p-2 border rounded-lg cursor-pointer ${
-                    formData.user.exams.includes(exam) ? 'bg-purple-500 text-white' : 'bg-gray-200'
+                    formData.user.exams.includes(exam) ? 'bg-blue-500 text-white' : 'bg-gray-200'
                   }`}
                   onClick={() => handleExamClick(exam)}
                 >
@@ -208,7 +208,7 @@ const Form = () => {
               value={formData.education}
               name="education"
               onChange={handleChange}
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               required
             >
               <option value="">Выберите вид образования</option>
@@ -223,7 +223,7 @@ const Form = () => {
               name="study_form"
               value={formData.user.study_form}
               onChange={handleChange}
-              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-purple-500"
+              className="w-full p-2 mt-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               required
             >
               <option value="">Выберите форму обучения</option>

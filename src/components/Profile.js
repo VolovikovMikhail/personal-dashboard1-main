@@ -5,6 +5,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import Form from './Form';
 import ClassifierForm from './MiniClassifier';
 import Chat from './Chat';
+import EditProfile from './EditProfile';
 
 const Profile = () => {
   const { user, logout, updateUser } = useUser();
@@ -88,6 +89,16 @@ const Profile = () => {
                 </button>
               </li>
             )}
+            {user && (
+              <li className="mb-2">
+                <button
+                  onClick={() => setIsFormVisible(true)}
+                  className="w-full text-left px-6 py-3 focus:outline-none text-gray-200 hover:text-white transition-colors duration-200"
+                >
+                  Predict
+                </button>
+              </li>
+            )}
             <li className="mb-2">
               <button
                 onClick={() => setIsClassifierVisible(true)}
@@ -96,6 +107,16 @@ const Profile = () => {
                 Free predict
               </button>
             </li>
+            {user && (
+              <li className="mb-2">
+                <button
+                  onClick={() => logout()}
+                  className="w-full text-left px-6 py-3 focus:outline-none text-gray-200 hover:text-white transition-colors duration-200"
+                >
+                  Выход
+                </button>
+              </li>
+            )}
           </ul>
           <div className="px-6 py-4 text-sm text-center border-t border-blue-600">
             <p>© 2025 TyuIU</p>
@@ -105,21 +126,78 @@ const Profile = () => {
         {/* Main Content */}
         <div
           className="flex-1 ml-64 p-8 flex flex-col items-center justify-center min-h-screen relative bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://www.neoflex.ru/upload/iblock/ffb/24.jpg)' }}
+          
         >
-          <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-white bg-opacity-50"></div>
 
           <div className="w-full max-w-2xl relative z-10">
-            {isMyDataVisible ? (
-              <h2 className="text-3xl font-bold mb-6 text-center text-white">Мои данные</h2>
-            ) : isClassifierVisible ? (
-              <ClassifierForm />
-            ) : (
-              <div className="text-white text-center">
-                <h2 className="text-3xl font-bold mb-6">Добро пожаловать!</h2>
-                <p>Выберите пункт из меню слева.</p>
+          {isMyDataVisible ? (
+            <>
+              <h2 className="text-3xl font-bold mb-6 text-center text-black">Мои данные</h2>
+              <div className="p-6 bg-white border border-gray-300 rounded-md shadow-md max-w-lg mx-auto">
+                <form className="space-y-4">
+                  <label htmlFor="first_name" className="block text-black">Имя:</label>
+                  <input
+                    type="text"
+                    id="first_name"
+                    name="first_name"
+                    value={profileData.first_name || ''}
+                    onChange={(e) => setProfileData({ ...profileData, first_name: e.target.value })}
+                    className="w-full p-2 rounded-md bg-gray-100 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+                  
+                  <label htmlFor="last_name" className="block text-black">Фамилия:</label>
+                  <input
+                    type="text"
+                    id="last_name"
+                    name="last_name"
+                    value={profileData.last_name || ''}
+                    onChange={(e) => setProfileData({ ...profileData, last_name: e.target.value })}
+                    className="w-full p-2 rounded-md bg-gray-100 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+
+                  <label htmlFor="dad_name" className="block text-black">Отчество:</label>
+                  <input
+                    type="text"
+                    id="dad_name"
+                    name="dad_name"
+                    value={profileData.dad_name || ''}
+                    onChange={(e) => setProfileData({ ...profileData, dad_name: e.target.value })}
+                    className="w-full p-2 rounded-md bg-gray-100 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
+
+                  <label htmlFor="bio" className="block text-black">О себе:</label>
+                  <textarea
+                    id="bio"
+                    name="bio"
+                    rows="4"
+                    value={profileData.bio || ''}
+                    onChange={(e) => setProfileData({ ...profileData, bio: e.target.value })}
+                    className="w-full p-2 rounded-md bg-gray-100 text-black border border-gray-300 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  ></textarea>
+                </form>
+                <button
+                  className="block w-full py-3 mt-6 text-white bg-blue-500 rounded-md hover:bg-blue-600"
+                  onClick={saveChanges}
+                >
+                  Сохранить изменения
+                </button>
               </div>
-            )}
+            </>
+            ) : isFormVisible ? (
+              <>
+                <h2 className="text-3xl font-bold mb-6 text-center text-white">Predict</h2>
+                <p className="text-xl text-center mb-4 text-white">Здесь вы можете узнать свои шансы на поступление сразу по нескольким направлениям</p>
+                <Form />
+              </>
+            ) : isClassifierVisible ? (
+            <ClassifierForm />
+          ) : (
+            <div className="text-black text-center">
+              <h2 className="text-3xl font-bold mb-6">Добро пожаловать!</h2>
+              <p>Выберите пункт из меню слева.</p>
+            </div>
+          )}
           </div>
         </div>
       </div>
