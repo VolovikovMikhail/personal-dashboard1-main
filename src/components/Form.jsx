@@ -101,7 +101,7 @@ const Form = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <form onSubmit={handleSubmit} className="bg-white p-8 shadow-xl rounded-lg w-full max-w-xl">
+      <form onSubmit={handleSubmit} className="p-6 bg-white border border-gray-300 rounded-md shadow-md max-w-lg mx-auto">
         <label className="block mb-4 text-sm font-semibold">Количество направлений:
           <input
             type="number"

@@ -13,7 +13,7 @@ const Chat = () => {
     setInputMessage('');
 
     try {
-      const response = await fetch('https://tyuiu-rag-api-production.up.railway.app/', {
+      const response = await fetch('https://personal-account-fastapi.onrender.com/answer/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const Chat = () => {
   };
 
   return (
-    <div className="flex flex-col h-[400px] max-w-[500px] w-full bg-white shadow-lg rounded-lg p-4 border border-gray-200">
+    <div className="flex flex-col h-[400px] max-w-[500px] w-full bg-white shadow-lg rounded-lg p-4 border border-gray-200 ">
       {/* Список сообщений */}
       <div className="flex-1 overflow-y-auto space-y-2 p-2">
         {messages.map((msg, index) => (
