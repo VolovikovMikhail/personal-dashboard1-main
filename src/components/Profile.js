@@ -148,6 +148,15 @@ const Profile = () => {
                     onChange={(e) => setProfileData({ ...profileData, last_name: e.target.value })}
                     className="w-full p-2 rounded-md bg-gray-100 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
                   />
+                  <label htmlFor="dad_name" className="block text-black">Отчество:</label>
+                  <input
+                    type="text"
+                    id="dad_name"
+                    name="dad_name"
+                    value={profileData.dad_name || ''}
+                    onChange={(e) => setProfileData({ ...profileData, dad_name: e.target.value })}
+                    className="w-full p-2 rounded-md bg-gray-100 text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  />
                   <label htmlFor="bio" className="block text-black">О себе:</label>
                   <textarea
                     id="bio"
